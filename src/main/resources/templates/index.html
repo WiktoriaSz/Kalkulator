@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kalkulator</title>
+    <link href="https://fonts.googleapis.com/css?family=Marcellus+SC" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" ;>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<article class="first">
+    <div class="top">
+        <header>
+            <h1>Kalkulator</h1>
+        </header>
+    </div>
+
+    <p class="i1"><label><h2>Podaj liczby</h2></label></p>
+    <form method="post" th:action="@{/}" th:object="${data}">
+            <input type="text" th:field="*{a}" placeholder="Pierwsza liczba">
+            <input type="text" th:field="*{b}" placeholder="Druga liczba">
+
+            <p class="i2">
+                <button type="submit">
+                    Oblicz
+                </button>
+
+                <button type="reset">
+                    Cofnij
+                </button>
+            </p>
+
+        <article>
+            <p class="functions">
+            <p class="f1"><label><h2>Wybierz operację</h2></label></p>
+            <p class="f2">
+
+                <button type="submit" class="button" name="add">
+                    <i class="fa fa-plus" aria-hidden="true" th:alt="Plus"></i>
+                </button>
+                <button type="submit" class="button" name="sub">
+                    <i class="fa fa-minus" aria-hidden="true" th:alt="Minus"></i>
+                </button>
+                <button type="submit" class="button" name="multi">
+                    <i class="fa fa-times" aria-hidden="true" th:alt="Mnożenie"></i>
+                </button>
+                <button type="submit" class="button" name="div">
+                    <i class="fas fa-divide" th:alt="Dzielenie"></i>
+                </button>
+                <button type="submit" class="button" name="percent">
+                    <i class="fa fa-percent" aria-hidden="true" th:alt="Procent z"></i>
+                </button>
+                <button type="submit" class="button" name="pow">
+                    <i class="fas fa-superscript" aria-hidden="true" th:alt="Potęgowane do"></i>
+                </button>
+                <button type="submit" class="button" name="modulo">
+                r <i th:alt="Reszta z dzielenia"></i>
+                </button>
+
+
+                <!--<button type="submit" class="button" name="sqr">-->
+                    <!--<i class="fas fa-square-root" th:alt="Pierwiastek z"></i>-->
+                <!--</button>-->
+                <!--<button type="submit" class="button" name="fac">-->
+                <!--<i class="fa fa-exclamation" aria-hidden="true" th:alt="Silnia"></i>-->
+                <!--</button>-->
+
+
+            </p>
+
+        </article>
+    </form>
+    <div>
+        <h2>Wynik: </h2>
+        <p type="text" th:text="${result}" type="text">
+    </div>
+
+</article>
+
+<div class="bottom"></div>
+
+</body>
+</html>
