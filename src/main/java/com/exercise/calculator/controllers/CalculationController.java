@@ -11,26 +11,37 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class CalculationController {
 
-    private Data data;
-    private SimpleCalculation simpleCalculation;
-    private OtherCalculation otherCalculation;
+    private Data data = new Data();
+    private SimpleCalculation simpleCalculation = new SimpleCalculation();
+    private OtherCalculation otherCalculation = new OtherCalculation();
 
+
+//    @GetMapping("/")
+//    public String inputData(){
+//        return "index";
+//    }
 
     @GetMapping("/")
-    public String inputData(Model model){
+    public String inputData(@ModelAttribute Data data, Model model){
         model.addAttribute("data", data);
         return "index";
     }
 
-    @PostMapping("/add")
-    public String add(@ModelAttribute("data")Data data, ModelMap map) {
+//    @PostMapping("/add")
+//    public String add(@ModelAttribute Data data, ModelMap map) {
+//        map.addAttribute("result", simpleCalculation.add(data.getA(), data.getB()));
+//        return "index";
+//    }
+
+    @RequestMapping(params = "add", method = RequestMethod.POST)
+    public String add(@ModelAttribute Data data, ModelMap map) {
         map.addAttribute("result", simpleCalculation.add(data.getA(), data.getB()));
         return "index";
     }
 
     @PostMapping("/sub")
     public String sub(@ModelAttribute("data")Data data, ModelMap map) {
-        map.addAttribute("result", simpleCalculation.substraction(data.getA(), data.getB()));
+        map.addAttribute("result", simpleCalculation.subtraction(data.getA(), data.getB()));
         return "index";
     }
 

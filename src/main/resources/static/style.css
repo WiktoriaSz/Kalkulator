@@ -36,7 +36,8 @@ p.f1 {
     text-shadow: 0.1em 0.1em 0.2em black;
 }
 
-p.f2 {
+button.button {
+    border-radius: 6px;
     color: rgb(197, 243, 228);
     text-shadow: 0.2em 0.2em 0.3em black;
 }

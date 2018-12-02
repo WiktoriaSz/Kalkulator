@@ -2,11 +2,12 @@ package com.exercise.calculator.model;
 
 public class SimpleCalculation {
 
+
     public int add(int a, int b){
         return a + b;
     }
 
-    public int substraction(int a, int b){
+    public int subtraction(int a, int b){
         return a - b;
     }
 
@@ -19,7 +20,7 @@ public class SimpleCalculation {
         return (double) a / b;
     }
 
-    public double modulo(int a, int b) {
+    public int modulo(int a, int b) {
 
         return a % b;
     }
