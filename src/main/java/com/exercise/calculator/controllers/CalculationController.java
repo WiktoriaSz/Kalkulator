@@ -22,50 +22,62 @@ public class CalculationController {
 //    }
 
     @GetMapping("/")
-    public String inputData(@ModelAttribute Data data, Model model){
+    public String inputData(Model model){
+        Data data = new Data(0,0);
         model.addAttribute("data", data);
         return "index";
     }
 
-//    @PostMapping("/add")
-//    public String add(@ModelAttribute Data data, ModelMap map) {
-//        map.addAttribute("result", simpleCalculation.add(data.getA(), data.getB()));
-//        return "index";
-//    }
-
-    @RequestMapping(params = "add", method = RequestMethod.POST)
+    @PostMapping(params = "add")
     public String add(@ModelAttribute Data data, ModelMap map) {
         map.addAttribute("result", simpleCalculation.add(data.getA(), data.getB()));
         return "index";
     }
 
-    @PostMapping("/sub")
-    public String sub(@ModelAttribute("data")Data data, ModelMap map) {
+//    @RequestMapping(params = "add", method = RequestMethod.POST)
+//    public String add(@ModelAttribute Data data, ModelMap map) {
+//        map.addAttribute("result", simpleCalculation.add(data.getA(), data.getB()));
+//        return "index";
+//    }
+
+    @PostMapping(params = "sub")
+    public String sub(@ModelAttribute Data data, ModelMap map) {
         map.addAttribute("result", simpleCalculation.subtraction(data.getA(), data.getB()));
         return "index";
     }
 
-    @PostMapping("/multi")
-    public String multi(@ModelAttribute("data")Data data, ModelMap map) {
+    @PostMapping(params = "multi")
+    public String multi(@ModelAttribute Data data, ModelMap map) {
         map.addAttribute("result", simpleCalculation.multiplication(data.getA(), data.getB()));
         return "index";
     }
 
-    @PostMapping("/div")
-    public String div(@ModelAttribute("data")Data data, ModelMap map) {
+    @PostMapping(params = "div")
+    public String div(@ModelAttribute Data data, ModelMap map) {
         map.addAttribute("result", simpleCalculation.division(data.getA(), data.getB()));
         return "index";
     }
 
-    @PostMapping("/percent")
-    public String percent(@ModelAttribute("data")Data data, ModelMap map) {
+    @PostMapping(params = "percent")
+    public String percent(@ModelAttribute Data data, ModelMap map) {
         map.addAttribute("result", simpleCalculation.percentOf(data.getA(), data.getB()));
         return "index";
     }
 
-    @PostMapping("/pow")
-    public String power(@ModelAttribute("data")Data data, ModelMap map) {
+    @PostMapping(params = "pow")
+    public String power(@ModelAttribute Data data, ModelMap map) {
         map.addAttribute("result", simpleCalculation.powerOf(data.getA(), data.getB()));
         return "index";
+    }
+
+    @PostMapping(params = "modulo")
+    public String modulo(@ModelAttribute Data data, ModelMap map) {
+        map.addAttribute("result", simpleCalculation.modulo(data.getA(), data.getB()));
+        return "index";
+    }
+
+    @PostMapping(params = "reset")
+    public String reset() {
+        return "redirect:/";
     }
 }

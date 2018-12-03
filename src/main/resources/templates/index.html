@@ -18,62 +18,61 @@
         </header>
     </div>
 
-    <p class="i1"><label><h2>Podaj liczby</h2></label></p>
-    <form method="post" th:action="@{/}" th:object="${data}">
-        <input type="text" th:field="*{a}" placeholder="Pierwsza liczba" th:value="0"/>
-        <input type="text" th:field="*{b}" placeholder="Druga liczba" th:value="0"/>
+    <div class="second">
+        <p class="i1"><label><h2>Podaj liczby</h2></label></p>
+        <form method="post" th:action="@{/}" th:object="${data}">
+            <input type="text" th:field="*{a}" title="Pierwsza liczba" th:value="0"/>
+            <input type="text" th:field="*{b}" title="Druga liczba" th:value="0"/>
 
+            <p class="i2">
+                <button type="submit" name="reset">
+                    Wyczyść
+                </button>
+            </p>
 
-        <!--nie działa jak powinno, powinna być osobna metoda w kontrolerze, która zerowałaby.(redirect:)-->
-        <p class="i2">
-            <button type="reset">
-                Wyczyść
-            </button>
-        </p>
+            <p class="f1"><label><h2>Wybierz operację</h2></label></p>
+            <p class="f2">
 
-        <p class="f1"><label><h2>Wybierz operację</h2></label></p>
-        <p class="f2">
+                <button type="submit" name="add">
+                    <i class="fa fa-plus" aria-hidden="true" title="Plus"></i>
+                </button>
+                <button type="submit" class="button" name="sub">
+                    <i class="fa fa-minus" aria-hidden="true" title="Minus"></i>
+                </button>
+                <button type="submit" class="button" name="multi">
+                    <i class="fa fa-times" aria-hidden="true" title="Mnożenie"></i>
+                </button>
+                <button type="submit" name="div">
+                    <i title="Dzielenie"> / </i>
+                </button>
+                <button type="submit" name="percent">
+                    <i class="fa fa-percent" aria-hidden="true" title="Procent z"></i>
+                </button>
+                <button type="submit" name="pow">
+                    <i class="fa fa-superscript" aria-hidden="true" title="Potęgowane do"></i>
+                </button>
+                <button type="submit" class="button" name="modulo">
+                    <i title="Reszta z dzielenia"> r </i>
+                </button>
+            </p>
+            <!--<p class="i2">-->
+            <!--<button type="submit">-->
+            <!--Oblicz-->
+            <!--</button>-->
+            <!--</p>-->
+            <!--<button type="submit" class="button" name="sqr">-->
+            <!--<i class="fas fa-square-root" title="Pierwiastek z"></i>-->
+            <!--</button>-->
+            <!--<button type="submit" class="button" name="fac">-->
+            <!--<i class="fa fa-exclamation" aria-hidden="true" title="Silnia"></i>-->
+            <!--</button>-->
 
-            <button type="submit" name="add">
-                <i class="fa fa-plus" aria-hidden="true" title="Plus"></i>
-            </button>
-            <button type="submit" class="button" name="sub">
-                <i class="fa fa-minus" aria-hidden="true" title="Minus"></i>
-            </button>
-            <button type="submit" class="button" name="multi">
-                <i class="fa fa-times" aria-hidden="true" title="Mnożenie"></i>
-            </button>
-            <button type="submit" name="div">
-                <i title="Dzielenie"> / </i>
-            </button>
-            <button type="submit" name="percent">
-                <i class="fa fa-percent" aria-hidden="true" title="Procent z"></i>
-            </button>
-            <button type="submit" name="pow">
-                <i class="fa fa-superscript" aria-hidden="true" title="Potęgowane do"></i>
-            </button>
-            <button type="submit" class="button" name="modulo">
-                <i title="Reszta z dzielenia"> r </i>
-            </button>
-        </p>
-        <!--<p class="i2">-->
-        <!--<button type="submit">-->
-        <!--Oblicz-->
-        <!--</button>-->
-        <!--</p>-->
-        <!--<button type="submit" class="button" name="sqr">-->
-        <!--<i class="fas fa-square-root" title="Pierwiastek z"></i>-->
-        <!--</button>-->
-        <!--<button type="submit" class="button" name="fac">-->
-        <!--<i class="fa fa-exclamation" aria-hidden="true" title="Silnia"></i>-->
-        <!--</button>-->
-
-    </form>
-    <div class="result">
-        <h2>Wynik: </h2>
-        <p th:text="${result}">
+        </form>
+        <div class="result">
+            <h2>Wynik: </h2>
+            <p th:text="${result}">
+        </div>
     </div>
-
 </article>
 
 <div class="bottom"></div>
