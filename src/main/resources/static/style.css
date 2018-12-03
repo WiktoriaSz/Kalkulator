@@ -41,5 +41,5 @@ button.button {
     color: rgb(197, 243, 228);
     text-shadow: 0.2em 0.2em 0.3em black;
     background-color: rgb(194, 187, 187);
-
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 2px 4px 0 rgba(0,0,0,0.19);
 }

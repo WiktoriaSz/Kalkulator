@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class CalculationController {
 
-    private Data data = new Data();
+    private Data data = new Data(0,0);
     private SimpleCalculation simpleCalculation = new SimpleCalculation();
     private OtherCalculation otherCalculation = new OtherCalculation();
 
@@ -23,7 +23,6 @@ public class CalculationController {
 
     @GetMapping("/")
     public String inputData(Model model){
-        Data data = new Data(0,0);
         model.addAttribute("data", data);
         return "index";
     }
