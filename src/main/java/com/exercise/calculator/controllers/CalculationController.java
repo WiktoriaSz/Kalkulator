@@ -15,12 +15,6 @@ public class CalculationController {
     private SimpleCalculation simpleCalculation = new SimpleCalculation();
     private OtherCalculation otherCalculation = new OtherCalculation();
 
-
-//    @GetMapping("/")
-//    public String inputData(){
-//        return "index";
-//    }
-
     @GetMapping("/")
     public String inputData(Model model){
         model.addAttribute("data", data);
@@ -32,12 +26,6 @@ public class CalculationController {
         map.addAttribute("result", simpleCalculation.add(data.getA(), data.getB()));
         return "index";
     }
-
-//    @RequestMapping(params = "add", method = RequestMethod.POST)
-//    public String add(@ModelAttribute Data data, ModelMap map) {
-//        map.addAttribute("result", simpleCalculation.add(data.getA(), data.getB()));
-//        return "index";
-//    }
 
     @PostMapping(params = "sub")
     public String sub(@ModelAttribute Data data, ModelMap map) {
@@ -75,6 +63,31 @@ public class CalculationController {
         return "index";
     }
 
+    //-------------------------------------------------
+    @PostMapping(params = "sqr")
+    public String sqr(@ModelAttribute Data data, ModelMap map) {
+        map.addAttribute("result", otherCalculation.squareOf(data.getA()));
+        return "index";
+    }
+
+    @PostMapping(params = "fac")
+    public String factorial(@ModelAttribute Data data, ModelMap map) {
+        map.addAttribute("result", otherCalculation.factorial(data.getA()));
+        return "index";
+    }
+
+    @PostMapping(params = "cub")
+    public String cubeOf(@ModelAttribute Data data, ModelMap map) {
+        map.addAttribute("result", otherCalculation.cubeOf(data.getA()));
+        return "index";
+    }
+
+    @PostMapping(params = "binary")
+        public String binary(@ModelAttribute Data data, ModelMap map) {
+        map.addAttribute("result", otherCalculation.showAsBinary(data.getA()));
+        return "index";
+    }
+    //-------------------------------------------------
     @PostMapping(params = "reset")
     public String reset() {
         return "redirect:/";

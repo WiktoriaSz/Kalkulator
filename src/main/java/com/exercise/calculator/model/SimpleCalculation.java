@@ -11,7 +11,7 @@ public class SimpleCalculation {
         return a - b;
     }
 
-    public int multiplication(int a, int b){
+    public long multiplication(int a, int b){
         return a * b;
     }
 
