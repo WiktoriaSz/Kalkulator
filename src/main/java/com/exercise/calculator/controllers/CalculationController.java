@@ -9,14 +9,15 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/")
 public class CalculationController {
 
-    private Data data = new Data(0,0);
+    private Data data = new Data(0, 0);
     private SimpleCalculation simpleCalculation = new SimpleCalculation();
     private OtherCalculation otherCalculation = new OtherCalculation();
 
     @GetMapping("/")
-    public String inputData(Model model){
+    public String inputData(Model model) {
         model.addAttribute("data", data);
         return "index";
     }
@@ -83,10 +84,11 @@ public class CalculationController {
     }
 
     @PostMapping(params = "binary")
-        public String binary(@ModelAttribute Data data, ModelMap map) {
+    public String binary(@ModelAttribute Data data, ModelMap map) {
         map.addAttribute("result", otherCalculation.showAsBinary(data.getA()));
         return "index";
     }
+
     //-------------------------------------------------
     @PostMapping(params = "reset")
     public String reset() {
